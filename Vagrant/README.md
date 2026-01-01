@@ -5,8 +5,6 @@ My Vagrant guide provides a step-by-step introduction to Vagrant and explains ho
 
 ## Table of Contents
 - [1. Install Vagrant](#1-install-vagrant)
-  - [1.1. Windows](#11-windows)
-  - [1.2. Ubuntu](#12-ubuntu)
 - [2. Deploy Virtual Machines with Vagrant](#2-deploy-virtual-machines-with-vagrant)
 - [3. Login to the Virtual Machines](#3-login-to-the-virtual-machines)
 - [4. Vagrant Suspend](#4-vagrant-suspend)
@@ -16,8 +14,8 @@ My Vagrant guide provides a step-by-step introduction to Vagrant and explains ho
 ---
 
 ## 1. Install Vagrant
+*In my tutorial, I installed Vagrant in Windows 11.
 
-### 1.1. Windows
 In the search bar of a web browser, look up `vagrant` and click the `Install` option.
 
 ![](https://github.com/pandathetech/AutoDeploy/blob/main/Vagrant/Assets/Screenshot%202025-11-30%20123704.png)
@@ -41,16 +39,6 @@ Once the setup is completed, click `Finish`.
 Restart your Windows system to apply the configuration changes for Vagrant (Click `Yes`).
 
 ![](https://github.com/pandathetech/AutoDeploy/blob/main/Vagrant/Assets/Screenshot%202025-11-30%20135239.png)
-
-### 1.2. Ubuntu
-
-![]()
-
-![]()
-
-![]()
-
-![]()
 
 ---
 
