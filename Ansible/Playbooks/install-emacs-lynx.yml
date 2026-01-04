@@ -1,0 +1,15 @@
+---
+- name: Install Emacs and Lynx
+  hosts: webservers:database_servers
+  become: true
+
+  tasks:
+    - name: Install Emacs
+      apt:
+        name: emacs
+        state: present
+
+    - name: Install Lynx
+      apt:
+        name: lynx
+        state: present
