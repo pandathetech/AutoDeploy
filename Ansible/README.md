@@ -7,9 +7,10 @@
 - [2. Install Two Ansible Node Servers](#2-install-two-ansible-node-servers)
 - [3. Create Two Host Groups](#3-create-two-host-groups)
 - [4. Configure Passwordless SSH Authentication for Remote Hosts](#4-configure-passwordless-ssh-authentication-for-remote-hosts)
-- [5. Create a Playbook to Install Apache Web Server on Ansible Clients](#5-create-a-playbook-to-install-apache-web-server-on-ansible-clients)
+- [5. Create Playbooks to Automate Tasks on Ansible Clients](#5-create-playbooks-to-automate-tasks-on-ansible-clients)
 - [6. Install Git on the Ansible Controller](#6-install-git-on-the-ansible-controller)
 - [7. Enable Git Tracking for Files in /etc/ansible](#7-enable-git-tracking-for-files-in-etcansible)
+- [8. References](#8-references)
 
 ---
 
@@ -154,7 +155,19 @@ ansible all -m ping
 
 ![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-02%20221133.png)
 
+---
+
+## 5. Create Playbooks to Automate Tasks on Ansible Clients
+
 To install the `emacs` and `lynx` software on each of my Ansible clients (nodes), I accessed the `/etc/ansible` directory and created a playbook named `install-emacs-lynx.yml` in my Ansible root VM.
+
+```
+cd /etc/ansible/
+```
+
+```
+sudo vim install-emacs-lynx.yml
+```
 
 ![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-02%20221401.png)
 
@@ -162,20 +175,33 @@ Here is a screenshot of my Ansible playbook for installing `emacs` and `lynx`.
 
 ![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-02%20221851.png)
 
----
+To execute my Ansible playbook of installing Emacs and Lynx using my `/etc/ansible/hosts` file, run the following command:
 
-## 5. Create a Playbook to Install Apache Web Server on Ansible Clients
-After creating a playbook to install the Apache server on my Ansible clients, I executed it using my `/etc/ansible/hosts` file. Here is a visualization of my Ansible playbook for this task.
+```
+ansible-playbook -i hosts install-emacs-lynx.yml
+```
 
-![]()
+I created a playbook to install the Apache server on my Ansible clients. Here is a visualization of my Ansible playbook for this task.
 
-![]()
+```
+sudo vim install-apache.yml
+```
+
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20115738.png)
+
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20115838.png)
+
+To execute my Ansible playbook of installing Apache using my `/etc/ansible/hosts` file, run the following command:
+
+```
+ansible-playbook -i hosts install-apache.yml
+```
 
 To verify that the Apache server was installed on my two managed nodes, I accessed their default web pages using their public IP addresses.
 
-![]()
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20120038.png)
 
-![]()
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20120039.png)
 
 ---
 
@@ -183,10 +209,10 @@ To verify that the Apache server was installed on my two managed nodes, I access
 I installed Git using the following command.
 
 ```
-sudo apt install git -y
+sudo apt install git
 ```
 
-![]()
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20120828.png)
 
 ---
 
@@ -197,6 +223,8 @@ To enable Git tracking of the files in the `/etc/ansible` directory, I initializ
 sudo git init
 ```
 
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20124120.png)
+
 ```
 sudo git add .
 ```
@@ -205,7 +233,7 @@ sudo git add .
 sudo git commit -m "[Your commit message]"
 ```
 
-![]()
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20130956.png)
 
 I also configured my user credentials (name and email).
 
@@ -217,4 +245,10 @@ git config --global user.name "[Your Name]"
 git config --global user.email "[Your Email Address]"
 ```
 
-![]()
+![](https://github.com/pandathetech/AutoDeploy/blob/main/Ansible/Assets/Screenshot%202026-01-04%20131115.png)
+
+---
+
+## 8. References
+- [Digital Ocean - Install and Configure Ansible on Ubuntu 22.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-ansible-on-ubuntu-22-04)
+- [Medium - Ansible: Passwordless SSH Authentication using public-private key pairs](https://sudheer-baraker.medium.com/ansible-passwordless-ssh-authentication-using-public-private-key-pairs-1bf91fff349e)
