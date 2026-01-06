@@ -1,5 +1,4 @@
 # Docker (Ubuntu 22.04)
-Docker is a containerization platform that allows you to package applications and their dependencies into lightweight, portable containers. This guide walks through installing Docker on **Ubuntu 22.04**, enabling and managing the Docker service, downloading images, creating containers, and accessing containerized applications through a web interface. It is intended for users who want a straightforward, step-by-step setup using the command line.
 
 ---
 
